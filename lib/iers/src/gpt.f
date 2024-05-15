@@ -47,9 +47,9 @@
 *                  DLAT = 0.6708665767D0 radians (NRAO, Green Bank, WV)
 *                  DLON = -1.393397187D0 radians
 *                  DHGT = 812.546 meters
-*     expected output: PRES = 919.1930225603726967D0 hPa 
-*                      TEMP = 28.94460920276309679D0 degrees Celsius
-*                      UNDU = -42.78796423912972813D0 meters
+*     expected output: PRES = 918.0710638757363995D0 hPa 
+*                      TEMP = 19.31914181012882992D0 degrees Celsius
+*                      UNDU = -42.19185643717770517D0 meters
 *
 *  References:
 *
@@ -70,6 +70,8 @@
 *  2009 July  29 B.E. Stetzler Capitalized all variables for FORTRAN 77
 *                              compatibility and corrected test case
 *                              latitude and longitude coordinates
+*  2011 October 18 B.E. Stetzler Corrected test case output mentioned
+*                                in the header
 *-----------------------------------------------------------------------
 
       IMPLICIT NONE
@@ -234,9 +236,9 @@
   
 *     Legendre polynomials
       V(1,1) = 1.0D0
-      W(1,1) = 0.0D0
-      V(2,1) = Z * V(1,1)
-      W(2,1) = 0.0
+      W(1,1) = 0.0D0;
+      V(2,1) = Z * V(1,1);
+      W(2,1) = 0.0;
 
       DO N=2,NMAX
         V(N+1,1) = ((2*N-1) * Z * V(N,1) - (N-1) * V(N-1,1)) / N
